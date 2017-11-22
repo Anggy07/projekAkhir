@@ -15,7 +15,11 @@
     <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
     <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
 </head>
-
+<script>
+    function popup() {
+        alert("Terima kasih telah melakukan pemesanan, silahkan menunggu persetujuan kontraktor");
+    }
+</script>
 <body>
 <div class="page-wrapper">
 
@@ -317,15 +321,97 @@
                                 <!--Masonry-->
                                 <div class="default-masonry images-group main-image clearfix">
                                     <figure class="masonry-item"><a href="images/gallery/9.jpg" class="lightbox-image"><img src="images/gallery/9.jpg" alt=""></a></figure>
-                                    <figure class="masonry-item"><a href="images/gallery/10.jpg" class="lightbox-image"><img src="images/gallery/10.jpg" alt=""></a></figure>
+                                    <!-- <figure class="masonry-item"><a href="images/gallery/10.jpg" class="lightbox-image"><img src="images/gallery/10.jpg" alt=""></a></figure>
                                     <figure class="masonry-item"><a href="images/gallery/11.jpg" class="lightbox-image"><img src="images/gallery/11.jpg" alt=""></a></figure>
+                               <-->
                                 </div>
 
-                                <h2 class="project-title">Transformation sparks construction income for all</h2>
+                                <h2 class="project-title">Detail Spesifikasi Proyek</h2>
                                 <!--Default Text Block-->
                                 <div class="default-text-block">
-                                    <p><strong>Lorem ipsum dolor sit amet, per ei erat nonumy dissentias, qui dicat gloriatur in. Veniam iriure equidem mel no. Impedit periculis cum ea, has qualisque prodesset at. Mea ex mandamus pericula, elitr libris insolens ex. </strong></p>
-                                    <p>Lorem ipsum dolor sit amet, per et soluta mucius, prima consequat id est, ei cum ferri volumus scaevola. Ei vis soluta labore, tota dicit commune pro cu, mei at vero dicunt. Eum at enim putant petentium, an vim munere placerat. Has impetus intellegam at, at falli dolorum est, eum quot adipiscing ea. Sed te persius inermis vulputate. Pro ad wisi.</p>
+                                    <table class="table table-condensed">
+                                        <thead>
+                                        <tr>
+                                            <th>Spesifikasi</th>
+                                            <th>Keterangan</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>Nama Rumah</td>
+                                            <td>Rumah Seri L25</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Kamar Tidur</td>
+                                            <td>6 Kamar</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Kamar Mandi</td>
+                                            <td>3 Kamar</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Luas Tanah</td>
+                                            <td>30 m2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Luas Bangunan</td>
+                                            <td>28 m2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Jumlah Lantai</td>
+                                            <td>2 lantai</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Garasi</td>
+                                            <td>1 Garasi</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <a href="#" class="btn btn-success" data-toggle="modal" data-target="#basicModal">Pesan Sekarang</a>
+
+                                <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                <h4 class="modal-title" id="myModalLabel">Formulir Pengajuan</h4>
+                                            </div>
+
+                                            <div class="modal-body">
+                                                <form action="" method="POST" role="form" onsubmit="popup()">
+
+                                                    <div class="form-group">
+                                                        <label for="">Alamat Proyek</label>
+                                                        <input type="text" class="form-control" id="" placeholder="Alamat Proyek">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="">Tanggal Pembangunan</label>
+                                                        <input type="date" class="form-control" id="" placeholder="Tanggal Pembangunan">
+                                                    </div>
+                                                    {{--<div class="form-group">--}}
+                                                        {{--<label for="">Isi 3</label>--}}
+                                                        {{--<input type="text" class="form-control" id="" placeholder="Isi 3">--}}
+                                                    {{--</div>--}}
+                                                    {{--<div class="form-group">--}}
+                                                        {{--<label for="">Isi 4</label>--}}
+                                                        {{--<input type="text" class="form-control" id="" placeholder="Isi 4">--}}
+                                                    {{--</div>--}}
+                                                    {{--<div class="form-group">--}}
+                                                        {{--<label for="">Isi 5</label>--}}
+                                                        {{--<input type="text" class="form-control" id="" placeholder="Isi 5">--}}
+                                                    {{--</div>--}}
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+                                                        <button type="submit" class="btn btn-primary">Ajukan</button>
+
+                                                    </div>
+                                                </form>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
                                 </div>
 
                                 {{--<hr class="padd-bott-40">--}}
