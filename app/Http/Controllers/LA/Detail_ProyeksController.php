@@ -7,6 +7,7 @@
 namespace App\Http\Controllers\LA;
 
 use App\Http\Controllers\Controller;
+use App\Models\Kontraktor;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use Auth;
@@ -84,8 +85,19 @@ class Detail_ProyeksController extends Controller
 			if ($validator->fails()) {
 				return redirect()->back()->withErrors($validator)->withInput();
 			}
-			
-			$insert_id = Module::insert("Detail_Proyeks", $request);
+			if (Auth::user() == 1) {
+
+                $insert_id = Module::insert("Detail_Proyeks", $request);
+            } else {
+                $kontraktor = Kontraktor::where('name_perusahaan','=',Auth::user()->name)->first()->id;
+                $insert_id = Module::insert("Detail_Proyeks", $request);
+                $data = Detail_Proyek::orderBy('id','desc')->first();
+                $data->update([
+                    'Kontraktor' => $kontraktor
+                ]);
+            }
+
+
 			
 			return redirect()->route(config('laraadmin.adminRoute') . '.detail_proyeks.index');
 			
@@ -247,5 +259,45 @@ class Detail_ProyeksController extends Controller
 		return $out;
 	}
 
-	//==========================================================================================================================================================================================================================
+
+    public function dtajax2()
+    {
+        $kontraktor = Kontraktor::where('name_perusahaan','=',Auth::user()->name)->first()->id;
+        $values = DB::table('detail_proyeks')->select($this->listing_cols)->whereNull('deleted_at')->where('Kontraktor','=',$kontraktor);
+        $out = Datatables::of($values)->make();
+        $data = $out->getData();
+
+        $fields_popup = ModuleFields::getModuleFields('Detail_Proyeks');
+
+        for($i=0; $i < count($data->data); $i++) {
+            for ($j=0; $j < count($this->listing_cols); $j++) {
+                $col = $this->listing_cols[$j];
+                if($fields_popup[$col] != null && starts_with($fields_popup[$col]->popup_vals, "@")) {
+                    $data->data[$i][$j] = ModuleFields::getFieldValue($fields_popup[$col], $data->data[$i][$j]);
+                }
+                if($col == $this->view_col) {
+                    $data->data[$i][$j] = '<a href="'.url(config('laraadmin.adminRoute') . '/detail_proyeks/'.$data->data[$i][0]).'">'.$data->data[$i][$j].'</a>';
+                }
+                // else if($col == "author") {
+                //    $data->data[$i][$j];
+                // }
+            }
+
+            if($this->show_action) {
+                $output = '';
+                if(Module::hasAccess("Detail_Proyeks", "edit")) {
+                    $output .= '<a href="'.url(config('laraadmin.adminRoute') . '/detail_proyeks/'.$data->data[$i][0].'/edit').'" class="btn btn-warning btn-xs" style="display:inline;padding:2px 5px 3px 5px;"><i class="fa fa-edit"></i></a>';
+                }
+
+                if(Module::hasAccess("Detail_Proyeks", "delete")) {
+                    $output .= Form::open(['route' => [config('laraadmin.adminRoute') . '.detail_proyeks.destroy', $data->data[$i][0]], 'method' => 'delete', 'style'=>'display:inline']);
+                    $output .= ' <button class="btn btn-danger btn-xs" type="submit"><i class="fa fa-times"></i></button>';
+                    $output .= Form::close();
+                }
+                $data->data[$i][] = (string)$output;
+            }
+        }
+        $out->setData($data);
+        return $out;
+    }
 }
