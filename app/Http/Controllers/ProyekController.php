@@ -23,7 +23,8 @@ use App\Models\Detail_Proyek;
 class ProyekController extends Controller
 {
     public function index(){
-        $proyek = Detail_Proyek::all();
+
+        $proyek = Detail_Proyek::whereNull('deleted_at')->get();
         return view('Proyek',[
             'proyek' => $proyek
         ]);
