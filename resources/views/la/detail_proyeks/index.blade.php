@@ -94,7 +94,7 @@ $(function () {
 	$("#example1").DataTable({
 		processing: true,
         serverSide: true,
-        ajax: "{{ url(config('laraadmin.adminRoute') . '/detail_proyek_dt_ajax') }}",
+        ajax: "{{ (Auth::user()->id == 1) ? url(config('laraadmin.adminRoute') . '/detail_proyek_dt_ajax') : url(config('laraadmin.adminRoute') . '/detail_proyek_dt_ajax2') }}",
 		language: {
 			lengthMenu: "_MENU_",
 			search: "_INPUT_",
