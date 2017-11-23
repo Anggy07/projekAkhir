@@ -30,3 +30,5 @@ Route::get('/proyek', 'ProyekController@index');
 //});
 
 Route::get('/proyek/detailproyek/{id}', 'ProyekController@detail');
+
+Route::post('/pesan', 'ProyekController@pesan');
