@@ -281,10 +281,10 @@
                     <div class="column project-column mix mix_all trust col-md-4 col-sm-6 col-xs-12">
                         <div class="inner-box">
 
-                            <figure class="image-box"><a href="{{ url('/detailproyek') }}"><img src="/files/{{ \App\Models\Upload::find($item->gambar)-> hash }}/{{ \App\Models\Upload::find($item->gambar)->name }}" alt=""></a></figure>
+                            <figure class="image-box"><a href="{{ url('/proyek/detailproyek/'.$item->id) }}"><img src="/files/{{ \App\Models\Upload::find($item->gambar)-> hash }}/{{ \App\Models\Upload::find($item->gambar)->name }}" alt=""></a></figure>
                             <div class="lower-content">
                                 <div class="project-cat"><a href="#">Rating 4.5 <span class="fa fa-angle-right"></span></a></div>
-                                <h3><a href="{{url('/detailproyek')}}"></a>{{ \App\Models\Kontraktor::find($item->Kontraktor)->name_perusahaan }}</h3>
+                                <h3><a href="{{url('/proyek/detailproyek/'.$item->id)}}"></a>{{ \App\Models\Kontraktor::find($item->Kontraktor)->name_perusahaan }}</h3>
                             </div>
                         </div>
                     </div>
