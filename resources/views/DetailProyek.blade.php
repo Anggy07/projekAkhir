@@ -5,15 +5,15 @@
     <meta charset="utf-8">
     <title>TConstruction : Web Platform penyedia jasa kontraktor bagi pemilik proyek</title>
     <!-- Stylesheets -->
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="css/revolution-slider.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <link href="/css/revolution-slider.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
     <!-- Responsive -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <link href="css/responsive.css" rel="stylesheet">
+    <link href="/css/responsive.css" rel="stylesheet">
     <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-    <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+    <!--[if lt IE 9]><script src="/js/respond.js"></script><![endif]-->
 </head>
 <script>
     function popup() {
@@ -320,7 +320,7 @@
 
                                 <!--Masonry-->
                                 <div class="default-masonry images-group main-image clearfix">
-                                    <figure class="masonry-item"><a href="images/gallery/9.jpg" class="lightbox-image"><img src="images/gallery/9.jpg" alt=""></a></figure>
+                                    <figure class="masonry-item"><a href="images/gallery/9.jpg" class="lightbox-image"><img src="/files/{{ \App\Models\Upload::find($rumah->gambar)-> hash }}/{{ \App\Models\Upload::find($rumah->gambar)->name }}" alt=""></a></figure>
                                     <!-- <figure class="masonry-item"><a href="images/gallery/10.jpg" class="lightbox-image"><img src="images/gallery/10.jpg" alt=""></a></figure>
                                     <figure class="masonry-item"><a href="images/gallery/11.jpg" class="lightbox-image"><img src="images/gallery/11.jpg" alt=""></a></figure>
                                <-->
@@ -337,33 +337,37 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr>
-                                            <td>Nama Rumah</td>
-                                            <td>Rumah Seri L25</td>
-                                        </tr>
+                                        {{--<tr>--}}
+                                            {{--<td>Nama Rumah</td>--}}
+                                            {{--<td>Rumah Seri L25</td>--}}
+                                        {{--</tr>--}}
                                         <tr>
                                             <td>Kamar Tidur</td>
-                                            <td>6 Kamar</td>
+                                            <td>{{ $rumah->kamarTidur }} Kamar</td>
                                         </tr>
                                         <tr>
                                             <td>Kamar Mandi</td>
-                                            <td>3 Kamar</td>
+                                            <td>{{ $rumah->kamarMandi }} Kamar</td>
                                         </tr>
                                         <tr>
                                             <td>Luas Tanah</td>
-                                            <td>30 m2</td>
+                                            <td>{{ $rumah->luasTanah }}</td>
                                         </tr>
                                         <tr>
                                             <td>Luas Bangunan</td>
-                                            <td>28 m2</td>
+                                            <td>{{ $rumah->luasBangunan }}</td>
                                         </tr>
                                         <tr>
                                             <td>Jumlah Lantai</td>
-                                            <td>2 lantai</td>
+                                            <td>{{ $rumah->jumlahLantai }} lantai</td>
                                         </tr>
                                         <tr>
                                             <td>Garasi</td>
-                                            <td>1 Garasi</td>
+                                            <td>{{ $rumah->garasi }} Garasi</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Harga</td>
+                                            <td>Rp {{ $rumah->harga }} </td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -744,13 +748,13 @@
 <div class="scroll-to-top scroll-to-target" data-target=".main-header"><span class="icon flaticon-arrow-ascendant-point
 "></span></div>
 
-<script src="js/jquery.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.fancybox.pack.js"></script>
-<script src="js/isotope.js"></script>
-<script src="js/owl.js"></script>
-<script src="js/wow.js"></script>
-<script src="js/script.js"></script>
+<script src="/js/jquery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.fancybox.pack.js"></script>
+<script src="/js/isotope.js"></script>
+<script src="/js/owl.js"></script>
+<script src="/js/wow.js"></script>
+<script src="/js/script.js"></script>
 </body>
 
 </html>
