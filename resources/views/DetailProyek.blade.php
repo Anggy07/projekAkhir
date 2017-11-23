@@ -393,10 +393,10 @@
                                                         <label for="">Tanggal Pembangunan</label>
                                                         <input type="date" class="form-control" id="" placeholder="Tanggal Pembangunan">
                                                     </div>
-                                                    {{--<div class="form-group">--}}
-                                                        {{--<label for="">Isi 3</label>--}}
-                                                        {{--<input type="text" class="form-control" id="" placeholder="Isi 3">--}}
-                                                    {{--</div>--}}
+                                                    <div class="form-group">
+                                                        <label for="">Nama Proyek</label>
+                                                        <input type="text" class="form-control" id="" placeholder="Nama proyek">
+                                                    </div>
                                                     {{--<div class="form-group">--}}
                                                         {{--<label for="">Isi 4</label>--}}
                                                         {{--<input type="text" class="form-control" id="" placeholder="Isi 4">--}}
