@@ -25,7 +25,8 @@ Route::get('/gallery', function () {
 
 Route::get('/proyek', 'ProyekController@index');
 
-Route::get('/detailproyek', function () {
-    return view('DetailProyek');
-});
+//Route::get('/detailproyek', function () {
+//    return view('DetailProyek');
+//});
 
+Route::get('/proyek/detailproyek/{id}', 'ProyekController@detail');
