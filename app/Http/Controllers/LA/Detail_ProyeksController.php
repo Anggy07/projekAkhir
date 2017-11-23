@@ -85,7 +85,7 @@ class Detail_ProyeksController extends Controller
 			if ($validator->fails()) {
 				return redirect()->back()->withErrors($validator)->withInput();
 			}
-			if (Auth::user() == 1) {
+			if (Auth::user()->id == 1) {
 
                 $insert_id = Module::insert("Detail_Proyeks", $request);
             } else {
