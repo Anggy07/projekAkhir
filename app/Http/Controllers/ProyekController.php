@@ -29,4 +29,20 @@ class ProyekController extends Controller
             'proyek' => $proyek
         ]);
     }
+
+    public function detail($id) {
+        $rumah = Detail_Proyek::find($id);
+        if(isset($rumah->id)) {
+            return View('DetailProyek', [
+                'rumah' => $rumah,
+            ]);
+
+        } else {
+            return view( 'errors.404', [
+                'record_id' => $id,
+                'record_name' => ucfirst("detailproyek"),
+            ]);
+        }
+    }
+
 }
