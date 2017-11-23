@@ -16,9 +16,9 @@
     <!--[if lt IE 9]><script src="/js/respond.js"></script><![endif]-->
 </head>
 <script>
-    function popup() {
-        alert("Terima kasih telah melakukan pemesanan, silahkan menunggu persetujuan kontraktor");
-    }
+//    function popup() {
+//        alert("Terima kasih telah melakukan pemesanan, silahkan menunggu persetujuan kontraktor");
+//    }
 </script>
 <body>
 <div class="page-wrapper">
@@ -383,19 +383,20 @@
                                             </div>
 
                                             <div class="modal-body">
-                                                <form action="" method="POST" role="form" onsubmit="popup()">
-
+                                                <form action="{{ url('/pesan') }}" method="POST" role="form">
+                                                    {{ csrf_field() }}
+                                                    <input type="hidden" name="proyek" value="{{ $rumah->id }}">
                                                     <div class="form-group">
                                                         <label for="">Alamat Proyek</label>
-                                                        <input type="text" class="form-control" id="" placeholder="Alamat Proyek">
+                                                        <input type="text" name ="AlamatProyek" class="form-control" id="" placeholder="Alamat Proyek">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="">Tanggal Pembangunan</label>
-                                                        <input type="date" class="form-control" id="" placeholder="Tanggal Pembangunan">
+                                                        <input type="date" name ="TanggalProyek" class="form-control" id="" placeholder="Tanggal Pembangunan">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="">Nama Proyek</label>
-                                                        <input type="text" class="form-control" id="" placeholder="Nama proyek">
+                                                        <input type="text" name ="NamaProyek" lass="form-control" id="" placeholder="Nama proyek">
                                                     </div>
                                                     {{--<div class="form-group">--}}
                                                         {{--<label for="">Isi 4</label>--}}
